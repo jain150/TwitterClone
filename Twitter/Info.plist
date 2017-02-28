@@ -22,7 +22,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>com.arnav.Twitter</string>
+			<string>com.arnav.TwitterDemo</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>myTwitterApp</string>

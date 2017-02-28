@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		474AEE2E1E6585000047AF56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 474AEE2D1E6585000047AF56 /* Assets.xcassets */; };
 		A00F5F1C1E5D371B009413CC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00F5F1B1E5D371B009413CC /* LoginViewController.swift */; };
 		A01120FE1E5E1A58003DB35E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01120FD1E5E1A58003DB35E /* User.swift */; };
 		A01121001E5E1A61003DB35E /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01120FF1E5E1A61003DB35E /* Tweet.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		210E062998007A80C4D42336 /* Pods-Twitter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Twitter.release.xcconfig"; path = "Pods/Target Support Files/Pods-Twitter/Pods-Twitter.release.xcconfig"; sourceTree = "<group>"; };
+		474AEE2D1E6585000047AF56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../../../../Downloads/Twitter-Client-master 2/Twitter/Assets.xcassets"; sourceTree = "<group>"; };
 		A00F5F1B1E5D371B009413CC /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A01120FD1E5E1A58003DB35E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A01120FF1E5E1A61003DB35E /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				A00F5F1D1E5D460A009413CC /* View Controllers */,
 				A00F5F1E1E5D4618009413CC /* Model */,
 				A0AA004D1E5A80B200693A42 /* AppDelegate.swift */,
+				474AEE2D1E6585000047AF56 /* Assets.xcassets */,
 				A0AA00561E5A80B200693A42 /* LaunchScreen.storyboard */,
 				A0AA00591E5A80B200693A42 /* Info.plist */,
 			);
@@ -166,7 +169,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
 				LastUpgradeCheck = 0800;
-				ORGANIZATIONNAME = "Aarnav Ram";
+				ORGANIZATIONNAME = "Arnav Jain";
 				TargetAttributes = {
 					A0AA00491E5A80B200693A42 = {
 						CreatedOnToolsVersion = 8.0;
@@ -199,6 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0AA00581E5A80B200693A42 /* LaunchScreen.storyboard in Resources */,
+				474AEE2E1E6585000047AF56 /* Assets.xcassets in Resources */,
 				A0AA00531E5A80B200693A42 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -388,11 +392,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EEF792770B69739E714E7D50 /* Pods-Twitter.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = TSCDBQM29F;
 				INFOPLIST_FILE = Twitter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.arnav.Twitter;
+				PRODUCT_BUNDLE_IDENTIFIER = com.arnav.TwitterDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -402,11 +405,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 210E062998007A80C4D42336 /* Pods-Twitter.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = TSCDBQM29F;
 				INFOPLIST_FILE = Twitter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.arnav.Twitter;
+				PRODUCT_BUNDLE_IDENTIFIER = com.arnav.TwitterDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
