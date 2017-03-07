@@ -2,7 +2,7 @@
 //  User.swift
 //  Twitter
 //
-//  Created by Arnav Jain on 25/02/17.
+//  Created by Arnav Jan on 25/02/17.
 //  Copyright © 2017 Arnav Jain. All rights reserved.
 //
 

@@ -12,6 +12,7 @@ class TweetCell: UITableViewCell {
 
     @IBOutlet weak var retweetButton: UIButton!
     @IBOutlet weak var favButton: UIButton!
+    @IBOutlet weak var avatarButton: UIButton!
 
     @IBOutlet weak var favImgView: UIImageView!
 
@@ -21,7 +22,7 @@ class TweetCell: UITableViewCell {
     
     @IBOutlet weak var retweetLabel: UILabel!
     @IBOutlet weak var favLabel: UILabel!
-    
+    var indexPathRow:Int!
     var tweet: Tweet! {
         didSet {
             if tweet.favourited == true {
@@ -51,6 +52,7 @@ class TweetCell: UITableViewCell {
         //print("this is a \(tweet)")
         retweetButton.addTarget(self, action: #selector(TweetCell.onRetweetPressed), for: .touchUpInside)
         favButton.addTarget(self, action: #selector(TweetCell.onFavouritePressed), for: .touchUpInside)
+        
 
     }
     
@@ -65,37 +67,51 @@ class TweetCell: UITableViewCell {
     func onRetweetPressed() {
         
         let tweetID = tweet?.id
-        if tweet?.retweeted == false {
-            TwitterClient.sharedInstance?.retweet(id: tweetID!, success: { (tweet: Tweet) in
-                self.retweetLabel.text = "\(tweet.retweetCount)"
-                self.retweetButton.setImage(UIImage(named: "retweet-icon-green"), for: .normal)
-            }, faliure: { (error: Error) in
-                print(error.localizedDescription)
-            })
-        } else {
-            
-        }
+        TwitterClient.sharedInstance?.getTweet(id: tweetID!, success: { (dict: NSDictionary) in
+            let count = dict["retweet_count"] as! Int
+            let retweeted = dict["retweeted"] as! Bool
+            if retweeted == false {
+                TwitterClient.sharedInstance?.retweet(id: tweetID!, success: { (tweet: Tweet) in
+                    self.retweetLabel.text = "\(tweet.retweetCount)"
+                    self.retweetButton.setImage(UIImage(named: "retweet-icon-green"), for: .normal)
+                    TweetsViewController.tweets![self.indexPathRow].retweeted = true
+                }, faliure: { (error: Error) in
+                    print(error.localizedDescription)
+                })
+            } else {
+                
+            }
+        }, failure: { (error: Error) in
+            print(error.localizedDescription)
+        })
+
         
         print(tweet)
     }
     
     func onFavouritePressed() {
         let tweetID = tweet?.id
-        if tweet.favourited == false {
-            TwitterClient.sharedInstance?.favorite(id: tweetID!, success: { () in
-               // self.favLabel.text = "\(self.tweet.favouriteCount)"
-                self.favButton.setImage(UIImage(named: "favor-icon-red"), for: .normal)
-            }, failure: { (error: Error) in
-                print(error.localizedDescription)
-            })
-            
-            TwitterClient.sharedInstance?.getTweet(id: tweetID!, success: { (dictionary: NSDictionary) in
-                let count = dictionary["favorite_count"] as! Int
-                self.favLabel.text = "\(count + 1)"
-            }, failure: { (error: Error) in
-                print(error.localizedDescription)
-            })
-        }
+
+        TwitterClient.sharedInstance?.getTweet(id: tweetID!, success: { (dictionary: NSDictionary) in
+            let count = dictionary["favorite_count"] as! Int
+            let favourited = dictionary["favorited"] as! Bool
+            if favourited == false {
+                TwitterClient.sharedInstance?.favorite(id: tweetID!, success: { (tweet: Tweet) in
+                    // self.favLabel.text = "\(tweet.favouriteCount)"
+                    self.favButton.setImage(UIImage(named: "favor-icon-red"), for: .normal)
+                    TweetsViewController.tweets![self.indexPathRow].favourited = true
+                    self.favLabel.text = "\(count + 1)"
+
+                }, failure: { (error: Error) in
+                    print(error.localizedDescription)
+                })
+                
+                
+            }
+        }, failure: { (error: Error) in
+            print(error.localizedDescription)
+        })
+
     }
     
 
